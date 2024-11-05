@@ -1,0 +1,17 @@
+services:
+  coredns:
+    container_name: coredns-proxy
+    image: coredns/coredns:1.11.3
+    privileged: true
+    volumes:
+      - .:/home/nonroot
+    ports:
+      - 53:53/udp
+    networks:
+      - default
+      - development
+    restart: unless-stopped
+
+networks:
+  development:
+    external: true

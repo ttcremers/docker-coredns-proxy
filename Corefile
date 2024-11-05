@@ -1,0 +1,19 @@
+. {
+    # Forward to internal Docker NameServer
+    forward . 127.0.0.11
+
+    # Plugins: abort slow requests and show errors
+    log
+    debug
+    errors
+    cancel
+
+    # Add .docker suffix to all Docker hosts
+    rewrite name suffix .docker . answer auto
+
+    # Only accept request for .docker hosts
+    view docker {
+        expr name() endsWith '.docker.'
+    }
+}
+
