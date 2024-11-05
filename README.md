@@ -4,7 +4,7 @@ When developing using Docker/Docker Compose we usually map ports to the host mac
 
 While this works this isn't always the best solution especially when working on bigger projects with multiple (micro-)services.
 
-Wouldn't it be much nicer if we could find our services under their respective container names under the top level domain `.docker`, that's exactly what this project does. It runs a containerized DNS server mapped to the host on port 53. All DNS queries for `*.docker` are proxied to the internal Docker name server and the containers service ip is returned if a service with that specific `constainer_name` is found.
+Wouldn't it be much nicer if we could find our services under their respective container names under the top level domain `.docker`, that's exactly what this project does. It runs a containerized DNS server mapped to the Docker host on port 53. All DNS queries for `*.docker` are proxied to the internal Docker name server and the containers service IP is returned if a service with that specific `constainer_name` is found.
 
 As the name server runs containerised it works crossplatform (famous last words...)
 
